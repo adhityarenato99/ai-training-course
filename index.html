@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Training Program Presentations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+            color: #F9FAFB; /* text-gray-50 */
+        }
+        .presentation-container, #selection-screen {
+            display: none;
+        }
+        .presentation-container.active, #selection-screen.active {
+            display: block;
+        }
+        .slide {
+            display: none;
+            min-height: 500px;
+        }
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .slide-wrapper {
+            border: 1px solid #374151; /* border-gray-700 */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .progress-bar-bg {
+            background-color: #374151; /* bg-gray-700 */
+        }
+        .progress-bar {
+            transition: width 0.3s ease-in-out;
+        }
+        .logo-text {
+            color: #2dd4bf; /* teal-400 */
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .arch-diagram-svg {
+            background-color: #1f2937;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-5xl mx-auto">
+
+        <!-- Selection Screen -->
+        <div id="selection-screen" class="active text-center">
+            <div class="mb-6">
+                <svg class="w-24 h-24 logo-text mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2 1M4 7l2-1M4 7v2.5M12 21.5v-2.5M12 19l2-1m-2 1l-2-1m-2-1.5l-2-1m2 1l2 1m12-1.5l2-1m-2 1l-2 1M12 4.5v2.5M12 7l2-1M12 7l-2-1"></path></svg>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white">AI in Manufacturing Training</h1>
+            <p class="mt-4 text-xl text-gray-300">Please select a program to view its presentation.</p>
+            <div class="mt-10 flex flex-col md:flex-row justify-center gap-6">
+                <button onclick="showPresentation('basic-presentation')" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-transform transform hover:scale-105">
+                    Basic Level Program
+                </button>
+                <button onclick="showPresentation('advanced-presentation')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-transform transform hover:scale-105">
+                    Advanced Level Program
+                </button>
+            </div>
+        </div>
+
+        <!-- Basic Level Presentation -->
+        <div id="basic-presentation" class="presentation-container">
+            <div class="bg-gray-800 rounded-xl overflow-hidden slide-wrapper relative">
+                <button onclick="showSelectionScreen()" class="back-button bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full" title="Back to Selection">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                </button>
+                <div class="slides-content p-8 sm:p-12">
+                    <!-- Slide B1: Title -->
+                    <div class="slide active text-center">
+                        <h1 class="text-4xl md:text-5xl font-bold text-white">Basic Level Program</h1>
+                        <p class="mt-4 text-xl md:text-2xl text-teal-400">AI Ready: Manufacturing Fundamentals for Smart Industry</p>
+                    </div>
+                    <!-- Slide B2: Overview -->
+                    <div class="slide">
+                        <h2 class="text-3xl font-bold text-teal-400 mb-6">Program Overview</h2>
+                        <p class="text-lg text-gray-300">This 9-session foundational program prepares manufacturing professionals for AI implementation by developing core math, programming, and AI concepts. It introduces custom GPT and Gemini fine-tuning, prompt engineering, and basic RAG construction with workflow automation, enabling participants to build simple, practical AI tools.</p>
+                    </div>
+                    <!-- Slide B3: Learning Goals -->
+                    <div class="slide">
+                        <h2 class="text-3xl font-bold text-teal-400 mb-6">Learning Goals</h2>
+                        <ul class="list-disc list-inside space-y-3 text-lg text-gray-300">
+                            <li>Understand AI concepts & their manufacturing applications.</li>
+                            <li>Acquire Python programming basics for AI tasks.</li>
+                            <li>Perform basic fine-tuning and system instruction customization of GPT/Gemini.</li>
+                            <li>Build simple RAG systems using manufacturing data.</li>
+                            <li>Implement introductory AI-driven workflow automations.</li>
+                        </ul>
+                    </div>
+                    <!-- Slide B4: Curriculum -->
+                    <div class="slide">
+                        <h2 class="text-3xl font-bold text-teal-400 mb-6">9-Session Curriculum</h2>
+                        <ul class="list-decimal list-inside space-y-2 text-gray-300 text-md">
+                            <li><b>Introduction to AI in Manufacturing:</b> AI concepts, impact, and custom LLMs.</li>
+                            <li><b>Essential Mathematics:</b> Algebra, functions, and statistics with manufacturing examples.</li>
+                            <li><b>Statistics & Probability:</b> Descriptive stats and quality control use cases.</li>
+                            <li><b>Linear Algebra Foundations:</b> Vectors, matrices, and their role in AI.</li>
+                            <li><b>Python Basics & System Instructions:</b> Python setup and crafting instructions for fine-tuning.</li>
+                            <li><b>Programming Control Flow & Functions:</b> Conditionals, loops, and automation scripting.</li>
+                            <li><b>Data Preparation for Fine-Tuning:</b> Data collection, annotation, and cleaning.</li>
+                            <li><b>Intro to ML & Prompt Engineering:</b> ML types and prompt patterns.</li>
+                            <li><b>Custom RAG & Workflow Automation Basics:</b> Building simple RAG with LangChain & Make.com.</li>
+                        </ul>
+                    </div>
+                    <!-- Slide B5: Assessment -->
+                    <div class="slide">
+                        <h2 class="text-3xl font-bold text-teal-400 mb-6">Assessment & Scoring</h2>
+                        <ul class="list-none space-y-4 text-lg text-gray-300">
+                            <li><span class="font-bold text-white">25%</span> - Weekly Quizzes</li>
+                            <li><span class="font-bold text-white">30%</span> - Programming Assignments</li>
+                            <li><span class="font-bold text-white">20%</span> - Mid-term Project (Dataset prep & fine-tuning)</li>
+                            <li><span class="font-bold text-white">20%</span> - Final Project (Custom RAG & automation demo)</li>
+                            <li><span class="font-bold text-white">5%</span> - Participation</li>
+                        </ul>
+                    </div>
+                    <!-- Slide B6: Program Summary -->
+                    <div class="slide">
+                        <h2 class="text-3xl font-bold text-teal-400 mb-6">Program Summary</h2>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr>
+                                        <th class="p-4 bg-gray-700 text-white font-semibold">Focus Area</th>
+                                        <th class="p-4 bg-gray-700 text-white font-semibold">Activities</th>
+                                        <th class="p-4 bg-gray-700 text-white font-semibold">Tools & Platforms</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-gray-800">
+                                    <tr class="border-b border-gray-700">
+                                        <td class="p-4">Fine-tuning, system instructions, basic RAG setup</td>
+                                        <td class="p-4">Dataset prep, prompt engineering, simple workflows</td>
+                                        <td class="p-4">ChatGPT API, Gemini, LangChain, Make.com</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Slide B7: Final Project Example -->
+                    <div class="slide">
+                        <h2 class="text-3xl font-bold text-teal-400 mb-4">Final Project: Smart Defect Troubleshooter</h2>
+                        <div class="grid md:grid-cols-2 gap-6 items-center">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Description</h3>
+                                <p class="text-gray-300">Participants build a mini AI assistant that uses a RAG system connected to a local CSV file of defect types and solutions. It integrates a customized Gemini model and connects to Make.com to automate alert emails for high-severity defects.</p>
+                            </div>
+                            <div>
+                                <svg viewBox="0 0 400 300" class="arch-diagram-svg">
+                                    <!-- Define arrow marker -->
+                                    <defs>
+                                        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#9CA3AF" />
+                                        </marker>
+                                    </defs>
+                                    <!-- Boxes -->
+                                    <g>
+                                        <rect x="20" y="20" width="120" height="40" rx="5" fill="#374151" stroke="#4B5563"/>
+                                        <text x="80" y="45" fill="#F9FAFB" text-anchor="middle" font-size="10">User Input (UI)</text>
+                                    </g>
+                                    <g>
+                                        <rect x="20" y="100" width="120" height="40" rx="5" fill="#374151" stroke="#4B5563"/>
+                                        <text x="80" y="120" fill="#F9FAFB" text-anchor="middle" font-size="10">Python Backend</text>
+                                        <text x="80" y="132" fill="#CBD5E1" text-anchor="middle" font-size="8">(LangChain, Flask)</text>
+                                    </g>
+                                     <g>
+                                        <rect x="20" y="180" width="120" height="40" rx="5" fill="#374151" stroke="#4B5563"/>
+                                        <text x="80" y="200" fill="#F9FAFB" text-anchor="middle" font-size="10">Local Vector DB</text>
+                                        <text x="80" y="212" fill="#CBD5E1" text-anchor="middle" font-size="8">(CSV -> FAISS)</text>
+                                    </g>
+                                    <g>
+                                        <rect x="260" y="100" width="120" height="40" rx="5" fill="#374151" stroke="#4B5563"/>
+                                        <text x="320" y="125" fill="#F9FAFB" text-anchor="middle" font-size="10">Gemini API</text>
+                                    </g>
+                                    <g>
+                                        <rect x="260" y="180" width="120" height="40" rx="5" fill="#374151" stroke="#4B5563"/>
+                                        <text x="320" y="200" fill="#F9FAFB" text-anchor="middle" font-size="10">Make.com</text>
+                                        <text x="320" y="212" fill="#CBD5E1" text-anchor="middle" font-size="8">(Email Alert)</text>
+                                    </g>
+                                    <!-- Arrows -->
+                                    <line x1="80" y1="60" x2="80" y2="100" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)" />
+                                    <line x1="80" y1="140" x2="80" y2="180" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)" />
+                                    <path d="M 140 120 L 260 120" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)" fill="none"/>
+                                    <path d="M 140 125 Q 200 160 260 185" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)" fill="none" stroke-dasharray="3,3"/>
+                                    <path d="M 80 220 Q 80 250 320 250 Q 320 140 320 140" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrow)" fill="none"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation-controls mt-4"></div>
+        </div>
+
+        <!-- Advanced Level Presentation -->
+        <div id="advanced-presentation" class="presentation-container">
+            <div class="bg-gray-800 rounded-xl overflow-hidden slide-wrapper relative">
+                 <button onclick="showSelectionScreen()" class="back-button bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full" title="Back to Selection">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                </button>
+                <div class="slides-content p-8 sm:p-12">
+                    <!-- Slide A1: Title -->
+                    <div class="slide active text-center">
+                        <h1 class="text-4xl md:text-5xl font-bold text-white">Advanced Level Program</h1>
+                        <p class="mt-4 text-xl md:text-2xl text-teal-400">AI Implementation Mastery: From Data to Deployment</p>
+                    </div>
+                     <!-- Slide A2: Overview -->
+                    <div class="slide">
+                        <h2 class="text-3xl font-bold text-teal-400 mb-6">Program Overview</h2>
+                        <p class="text-lg text-gray-300">An advanced 12-session program focused on mastering large language model (LLM) customization for manufacturing. Participants will engage in hyperparameter tuning, full model training, advanced prompt engineering, sophisticated RAG builds, and production-grade workflow automation integrating GPT/Gemini within complex industrial systems.</p>
+                    </div>
+                    <!-- Slide A3: Learning Goals -->
+                    <div class="slide">
+                        <h2 class="text-3xl font-bold text-teal-400 mb-6">Learning Goals</h2>
+                        <ul class="list-disc list-inside space-y-3 text-lg text-gray-300">
+                            <li>Perform hyperparameter tuning & advanced model customization.</li>
+                            <li>Conduct end-to-end training of LLMs with domain-specific datasets.</li>
+                            <li>Create robust, scalable RAG systems for knowledge management.</li>
+                            <li>Build AI-powered, automated workflows for decision-making.</li>
+                            <li>Lead AI implementation and deployment projects in manufacturing.</li>
+                        </ul>
+                    </div>
+                    <!-- Slide A4: Curriculum -->
+                    <div class="slide">
+                        <h2 class="text-3xl font-bold text-teal-400 mb-6">12-Session Curriculum</h2>
+                        <ul class="list-decimal list-inside space-y-1 text-gray-300 text-sm md:text-base">
+                            <li><b>Foundations of Industrial AI:</b> Refresher on AI/ML and custom model capabilities.</li>
+                            <li><b>Industrial Data Collection & Management:</b> Advanced sourcing, IoT integration, quality assessment.</li>
+                            <li><b>Data Preprocessing & Augmentation:</b> Large-scale dataset prep and tokenization.</li>
+                            <li><b>Feature Engineering & Advanced Prompt Architecture:</b> Domain-specific features, complex prompt chaining.</li>
+                            <li><b>Hyperparameter Tuning & Training Strategies:</b> Learning rate, batch size, epochs, regularization.</li>
+                            <li><b>In-Depth Prompt Engineering:</b> Chain-of-thought, multi-modal prompts, iterative optimization.</li>
+                            <li><b>Machine Learning Model Optimization:</b> Performance metrics, model debugging, error analysis.</li>
+                            <li><b>Deep Learning & Full LLM Training:</b> Infrastructure, transfer learning, handling large data.</li>
+                            <li><b>Predictive Maintenance & Quality Control:</b> Deploying models for anomaly detection.</li>
+                            <li><b>Process & Supply Chain Optimization AI:</b> AI in scheduling, logistics, energy management.</li>
+                            <li><b>Deployment, Scaling & Workflow Automation:</b> Integrating LLMs/APIs with Make.com.</li>
+                            <li><b>Final Project Presentations & Future Directions:</b> Demos, peer review, and emerging trends.</li>
+                        </ul>
+                    </div>
+                    <!-- Slide A5: Assessment -->
+                     <div class="slide">
+                        <h2 class="text-3xl font-bold text-teal-400 mb-6">Assessment & Scoring</h2>
+                        <ul class="list-none space-y-4 text-lg text-gray-300">
+                            <li><span class="font-bold text-white">30%</span> - Weekly Assignments (Coding, tuning, prompts)</li>
+                            <li><span class="font-bold text-white">20%</span> - Mid-term Evaluation (Technical test)</li>
+                            <li><span class="font-bold text-white">40%</span> - Final Project (Full custom LLM + RAG + workflow)</li>
+                            <li><span class="font-bold text-white">10%</span> - Participation & Q&A</li>
+                        </ul>
+                    </div>
+                    <!-- Slide A6: Program Summary -->
+                    <div class="slide">
+                        <h2 class="text-3xl font-bold text-teal-400 mb-6">Program Summary</h2>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr>
+                                        <th class="p-4 bg-gray-700 text-white font-semibold">Focus Area</th>
+                                        <th class="p-4 bg-gray-700 text-white font-semibold">Activities</th>
+                                        <th class="p-4 bg-gray-700 text-white font-semibold">Tools & Platforms</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-gray-800">
+                                    <tr class="border-b border-gray-700">
+                                        <td class="p-4">Hyperparameter tuning, full model training, robust RAG</td>
+                                        <td class="p-4">LLM training, advanced optimization, RAG scaling</td>
+                                        <td class="p-4">GPT-4 API, Gemini AI Studio, LangChain, Make.com, AWS/GCP</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Slide A7: Final Project Example -->
+                    <div class="slide">
+                        <h2 class="text-3xl font-bold text-teal-400 mb-4">Final Project: Industrial Knowledge Assistant</h2>
+                        <div class="grid md:grid-cols-2 gap-6 items-center">
+                             <div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Description</h3>
+                                <p class="text-gray-300">An enterprise-grade AI assistant powered by a fine-tuned LLM trained on factory maintenance logs and SOPs. It features real-time search, decision support via prompt chaining, and connects to Make.com for full process automation.</p>
+                            </div>
+                            <div>
+                                <svg viewBox="0 0 400 300" class="arch-diagram-svg">
+                                    <!-- Define arrow marker -->
+                                    <defs>
+                                        <marker id="arrowAdv" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#9CA3AF" />
+                                        </marker>
+                                    </defs>
+                                    <!-- Boxes -->
+                                    <g>
+                                        <rect x="140" y="10" width="120" height="40" rx="5" fill="#374151" stroke="#4B5563"/>
+                                        <text x="200" y="35" fill="#F9FAFB" text-anchor="middle" font-size="10">User Interface</text>
+                                    </g>
+                                    <g>
+                                        <rect x="140" y="80" width="120" height="40" rx="5" fill="#374151" stroke="#4B5563"/>
+                                        <text x="200" y="100" fill="#F9FAFB" text-anchor="middle" font-size="10">LLM Backend</text>
+                                        <text x="200" y="112" fill="#CBD5E1" text-anchor="middle" font-size="8">(LangChain)</text>
+                                    </g>
+                                    <g>
+                                        <rect x="20" y="150" width="120" height="40" rx="5" fill="#374151" stroke="#4B5563"/>
+                                        <text x="80" y="175" fill="#F9FAFB" text-anchor="middle" font-size="10">Vector DB (Pinecone)</text>
+                                    </g>
+                                    <g>
+                                        <rect x="260" y="150" width="120" height="40" rx="5" fill="#374151" stroke="#4B5563"/>
+                                        <text x="320" y="170" fill="#F9FAFB" text-anchor="middle" font-size="10">Fine-Tuned LLM</text>
+                                        <text x="320" y="182" fill="#CBD5E1" text-anchor="middle" font-size="8">(GPT/Gemini)</text>
+                                    </g>
+                                    <g>
+                                        <rect x="20" y="220" width="120" height="40" rx="5" fill="#374151" stroke="#4B5563"/>
+                                        <text x="80" y="245" fill="#F9FAFB" text-anchor="middle" font-size="10">Industrial Data API</text>
+                                    </g>
+                                    <g>
+                                        <rect x="260" y="220" width="120" height="40" rx="5" fill="#374151" stroke="#4B5563"/>
+                                        <text x="320" y="245" fill="#F9FAFB" text-anchor="middle" font-size="10">Make.com Automation</text>
+                                    </g>
+                                    <!-- Arrows -->
+                                    <line x1="200" y1="50" x2="200" y2="80" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrowAdv)" />
+                                    <line x1="180" y1="120" x2="100" y2="150" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrowAdv)" />
+                                    <line x1="220" y1="120" x2="300" y2="150" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrowAdv)" />
+                                    <line x1="100" y1="190" x2="180" y2="120" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="3,3" />
+                                    <line x1="80" y1="190" x2="80" y2="220" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrowAdv)" />
+                                    <path d="M 200 120 L 200 200 L 320 200 L 320 220" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrowAdv)" fill="none"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation-controls mt-4"></div>
+        </div>
+    </div>
+
+    <script>
+        const selectionScreen = document.getElementById('selection-screen');
+        const presentations = document.querySelectorAll('.presentation-container');
+        let activePresentation = null;
+
+        function showSelectionScreen() {
+            presentations.forEach(p => p.classList.remove('active'));
+            selectionScreen.classList.add('active');
+            activePresentation = null;
+        }
+
+        function showPresentation(id) {
+            selectionScreen.classList.remove('active');
+            presentations.forEach(p => p.classList.remove('active'));
+            
+            const presentationToShow = document.getElementById(id);
+            presentationToShow.classList.add('active');
+            
+            if (activePresentation !== id) {
+                initializePresentation(id);
+                activePresentation = id;
+            }
+        }
+
+        function createNavigationControls(container) {
+            const navHTML = `
+                <div class="w-full progress-bar-bg rounded-full h-2.5">
+                    <div class="progress-bar bg-teal-400 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <div class="flex justify-between items-center mt-4">
+                    <button class="prev-btn nav-button bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg flex items-center transition-all">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        Previous
+                    </button>
+                    <div class="slide-counter text-gray-400 text-sm font-medium"></div>
+                    <button class="next-btn nav-button bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg flex items-center transition-all">
+                        Next
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            `;
+            container.innerHTML = navHTML;
+        }
+
+        function initializePresentation(id) {
+            const presentationContainer = document.getElementById(id);
+            const slides = presentationContainer.querySelectorAll('.slide');
+            const navContainer = presentationContainer.querySelector('.navigation-controls');
+            
+            // Clear and create nav controls
+            createNavigationControls(navContainer);
+
+            const prevBtn = navContainer.querySelector('.prev-btn');
+            const nextBtn = navContainer.querySelector('.next-btn');
+            const slideCounter = navContainer.querySelector('.slide-counter');
+            const progressBar = navContainer.querySelector('.progress-bar');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide) => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+                
+                slideCounter.textContent = `Slide ${index + 1} of ${slides.length}`;
+                const progressPercentage = slides.length > 1 ? (index / (slides.length - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index === slides.length - 1;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            });
+
+            showSlide(currentSlide);
+        }
+    </script>
+</body>
+</html>
